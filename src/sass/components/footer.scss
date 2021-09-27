@@ -1,0 +1,123 @@
+@use "../util" as *;
+@use "../globals/fonts.scss" as *;
+
+.footer {
+  background-color: var(--darkBlue);
+  color: var(--white);
+  padding: 4rem;
+  text-align: center;
+
+  .container {
+    @include breakpoint(large) {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 2fr;
+      grid-template-rows: 1fr auto;
+      grid-template-areas:
+        "logo links1 links2 cta"
+        "social links1 links2 copyright";
+      gap: 1rem;
+      justify-items: start;
+    }
+  }
+  a {
+    color: var(--white);
+  }
+  &__logo {
+    display: inline-block;
+
+    @include breakpoint-down(medium) {
+      margin-bottom: 3rem;
+    }
+
+    @include breakpoint(large) {
+      grid-area: logo;
+    }
+  }
+
+  &__social {
+    @include breakpoint-down(medium) {
+      margin-bottom: 2rem;
+    }
+
+    @include breakpoint(large) {
+      grid-area: social;
+      align-self: end;
+    }
+
+    a {
+      display: inline-block;
+      height: 2rem; //da nam se makne dodatan height od anchor linka
+
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+
+      svg path {
+        transition: fill 200ms ease-in-out;
+      }
+      &:hover svg path {
+        fill: var(--limeGreen);
+      }
+    }
+  }
+
+  &__links {
+    font-size: $font-sm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    a {
+      line-height: 2.25;
+      transition: color 200ms ease-in-out;
+
+      &:hover{
+        color: var(--limeGreen);
+      }
+    }
+
+    @include breakpoint(large) {
+      align-items: start;
+      justify-content: space-between;
+    }
+    &.col1 {
+      @include breakpoint(large) {
+        grid-area: links1;
+      }
+    }
+
+    &.col2 {
+      @include breakpoint-down(medium) {
+        margin-bottom: 3rem;
+      }
+
+      @include breakpoint(large) {
+        grid-area: links2;
+      }
+    }
+  }
+
+  &__cta {
+    @include breakpoint(large) {
+      grid-area: cta;
+      text-align: right;
+      justify-self: right;
+    }
+
+    a.button {
+      @include breakpoint-down(medium) {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+
+  &__copyright {
+    font-size: $font-sm;
+    color: var(--grayishBlue);
+    @include breakpoint(large) {
+      grid-area: copyright;
+      text-align: right;
+      justify-self: end;
+      align-self: end;
+    }
+  }
+}

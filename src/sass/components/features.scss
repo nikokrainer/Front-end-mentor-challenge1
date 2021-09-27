@@ -1,0 +1,60 @@
+@use "../util" as *;
+@use "../globals/fonts.scss" as *;
+
+.feature {
+  background-color: var(--lightGrayishBlue);
+  text-align: center;
+  @include breakpoint (medium){
+      text-align: left;
+  }
+  &__intro {
+    @include breakpoint(large) {
+      width: 60%;
+    }
+  }
+
+  &__grid {
+    @include breakpoint(medium) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    padding: 1.5rem; //30px / 2 jer je sa svake strane
+
+    @include breakpoint(medium) {
+      flex: 0 0 50%; //flex grow, flex shrink, flex basis(default width that the item's going to have // u slucaju tableta zauzimat ce pola reda
+    }
+
+    @include breakpoint(large) {
+      flex: 1;
+    }
+  }
+
+  &__icon {
+    margin-bottom: 3rem;
+    @include breakpoint(large) {
+      margin-bottom: 4.4rem;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--darkBlue);
+    margin-top: 0;
+    margin-bottom: 1rem;
+
+    @include breakpoint(large) {
+      font-size: 2.4rem;
+      margin-bottom: 2.2rem;
+    }
+  }
+
+  &__description {
+    font-size: $font-sm;
+    line-height: 1.5;
+  }
+}

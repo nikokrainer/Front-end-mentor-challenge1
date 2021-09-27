@@ -1,0 +1,32 @@
+@use '../util' as *;
+@use './fonts.scss' as *;
+
+h1, h2, h3{
+    line-height: 1.15;
+    font-weight: 300;
+    color: var(--darkBlue);
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 3.7rem;
+    margin-bottom: 2.4rem;
+    @include breakpoint(large) {
+      font-size: $font-xlg;
+    }
+  }
+
+h2{
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+
+    @include breakpoint(large){
+        font-size: 3.6rem;
+        margin-bottom: 3.6rem;
+    }
+}
+
+p {
+    line-height: 1.5;
+    margin-bottom: 3.6rem;
+}
